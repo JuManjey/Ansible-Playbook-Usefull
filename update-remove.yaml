@@ -20,7 +20,7 @@
       name: "*"
       state: latest
       
-  - name: "Remove Wireshark"
+  - name: "Install Wireshark"
     apt:
       name: wireshark
       state: latest
