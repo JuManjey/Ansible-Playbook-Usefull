@@ -2,38 +2,31 @@
   become: yes
   become_method: sudo
   tasks:
-  
   - name: "Update cache & Full system update"
     apt:
       update_cache: true
       cache_valid_time: 3600
       force_apt_get: true
-      
   - name: "Update packages and upgrade"
     apt:
       update_cache: true
       upgrade: dist
       force_apt_get: true
-      
   - name: Update all packages to their latest version
     apt:
       name: "*"
       state: latest
-      
   - name: "Install Wireshark"
     apt:
       name: wireshark
       state: latest
-      
   - name: remove "wireshark" package
-    apt: 
+    apt:
       name: wireshark
       state: absent
-      
   - name: Remove useless packages from the cache
     apt:
       autoclean: yes
-
   - name: Remove dependencies that are no longer required
     apt:
       autoremove: yes
